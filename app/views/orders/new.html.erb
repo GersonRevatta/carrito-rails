@@ -1,0 +1,39 @@
+<h1>Orders#new</h1>
+<h1>Products for orders => welcome <%= current_user.email %></h1>
+<br>
+
+<center>
+  <% @products.each do |i|%>
+    <div class="">
+      <%= i.name %>
+      <br>
+      <%= i.cost %>
+    </div>
+    
+    <%= @order.status %>
+    <!-- form -->
+    <%= form_for (@order),:url => { :action => :create }   do |f| %> 
+      <% f.text_field :user_id , :value => current_user.id %>
+      <% f.text_field :product_id , :value => i.id %>
+      <% f.text_field :status , :value => 'agregado' %>
+      <button type="submit" class="btn btn-primary">Agregar</button>    
+    <%end %> 
+    <br>
+  <% end %>
+</center>
+
+<!-- 
+<%= form_for (@order),:url => { :action => :create }   do |f| %> 
+  <%= f.text_field :name , :value => 'hola' %>
+  <%= f.text_field :user_id , :value => current_user.id %>
+  <button type="submit" class="btn btn-primary">Agregar</button>  
+<%end %>  -->
+
+
+
+
+
+<!-- 
+
+params.require(:order).permit(:name,:status,:product_id,:user_id)
+ -->

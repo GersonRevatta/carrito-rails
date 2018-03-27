@@ -1,0 +1,50 @@
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container nav-men">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle men-b" data-toggle="collapse" data-target="#navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            <!-- <%= link_to "Demo App", root_path, class: 'navbar-brand' %> -->
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <% if current_user %>
+                        <li>
+                            
+                                <div class="icon icon-book-2"> <span>Material</span>
+                                </div>
+                            
+                        </li>    
+                        <li>
+                            <%= link_to destroy_user_session_path , method: :delete do %>
+                                <div class="icon icon-user-times"> <span>Cerrar Sesión</span>
+                                </div>
+                            <% end %>
+                        </li>    
+                    <% else %>
+                    <li>
+                        <%= link_to root_path do %>
+                            <div class="icon icon-home-1"> <span>Inicio</span>
+                            </div>
+                        <% end %>
+                    </li>    
+                    <li>
+                        <%= link_to new_user_registration_path do %>
+                            <div class="icon icon-pencil-square-o"> <span>Registrarse</span>
+                            </div>
+                        <% end %>
+                    </li>
+                    <li>
+                        <%= link_to new_user_session_path do %>
+                            <div class="icon icon-users"> <span>Inicia Sesión</span>
+                            </div>
+                        <% end %>
+                    </li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+    </nav>
